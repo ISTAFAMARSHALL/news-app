@@ -1,8 +1,10 @@
+'use client'
 import { DUMMY_NEWS } from "@/dummy-news"
-import { notFound } from "next/navigation"
+import { notFound , useRouter} from "next/navigation"
 import Image from "next/image"
 
 export default function InterceptedImagePage (props) {
+    const router = useRouter();
     const newsItem = DUMMY_NEWS.find((newsItem) => newsItem.id === props.params.id )
 
     if (!newsItem) {
@@ -11,7 +13,7 @@ export default function InterceptedImagePage (props) {
 
     return (
         <>
-            <div className='modal-backdrop'>
+            <div className='modal-backdrop' onClick={router.back}>
                     <dailog className='modal'>
                         <div className='fullscreen-image' >
                             
