@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function (props) {
+export default function NewsList (props) {
     return (
         <ul className='news-list'>
 
