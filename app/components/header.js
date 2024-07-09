@@ -1,13 +1,16 @@
 import Link from 'next/link'
+import NavBar from './nav-bar';
 
 export default function Header () {
+
+    
+
     return (
         // <h1>
         <header id='main-header' >
             
             <div id='logo' >
                 <Link href=".." 
-                    // style={{marginRight: '50px'}} 
                 >
                     Home
                 </Link>
@@ -16,13 +19,12 @@ export default function Header () {
             <nav>
                 <ul>
                     <li>
-                        <Link href="/news" >News</Link>
+                        <NavBar href={'/news'} >News</NavBar>
                     </li>
-
+                    
                     <li>
-                        <Link href="/archive" >Archive</Link>
+                        <NavBar href={'/archive'} >Archives</NavBar>
                     </li>
-
                 </ul>
             </nav>
             
