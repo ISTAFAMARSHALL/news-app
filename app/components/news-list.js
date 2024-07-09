@@ -14,7 +14,7 @@ export default function (props) {
                                     alt={newsItem.title} 
                                 />
                             </Link>
-                            <span>{newsItem.title}</span>
+                            <p>{newsItem.title}</p>
                         </li>
                     )
                 })}
