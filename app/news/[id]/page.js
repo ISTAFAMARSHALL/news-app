@@ -1,8 +1,13 @@
 import { DUMMY_NEWS } from "@/dummy-news"
+import { notFound } from "next/navigation"
 
 export default function NewsDetailsPage (props) {
 
     const newsItem = DUMMY_NEWS.find((newsItem) => newsItem.id === props.params.id )
+
+    if (!newsItem) {
+        notFound()
+    }
 
     return (
         <article>
