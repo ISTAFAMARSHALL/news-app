@@ -4,7 +4,7 @@ export default function HomePage () {
   return (
     <div id='home'>
 
-      <h1>New App Project</h1>
+      <h1>News App Home Page</h1>
 
       <ul>
 

@@ -2,9 +2,26 @@ import Link from 'next/link'
 
 export default function Header () {
     return (
-        <h1>
-            <Link href=".." style={{marginRight: '50px'}} >home</Link>
-            <Link href="/news" >News</Link>
-        </h1>
+        // <h1>
+        <header id='main-header' >
+            
+            <div id='logo' >
+                <Link href=".." 
+                    // style={{marginRight: '50px'}} 
+                >
+                    Home
+                </Link>
+            </div>
+
+            <nav>
+                <ul>
+                    <li>
+                        <Link href="/news" >News</Link>
+                    </li>
+                </ul>
+            </nav>
+            
+        </header>
+        // </h1>
     )
 }
