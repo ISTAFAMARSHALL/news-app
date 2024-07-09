@@ -1,4 +1,5 @@
 import { DUMMY_NEWS } from "@/dummy-news"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 
 export default function ImagePage (props) {
@@ -10,7 +11,7 @@ export default function ImagePage (props) {
 
     return (
         <div className='fullscreen-image' >
-            <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+            <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
         </div>
     )
 }

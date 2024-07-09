@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 export default function (props) {
@@ -8,7 +9,7 @@ export default function (props) {
                     return (
                         <li key={newsItem.id} >
                             <Link href={`/news/${newsItem.id}`}>
-                                <img 
+                                <Image 
                                     src={`/images/news/${newsItem.image}`} 
                                     alt={newsItem.title} 
                                 />

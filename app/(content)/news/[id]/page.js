@@ -1,4 +1,5 @@
 import { DUMMY_NEWS } from "@/dummy-news"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -16,7 +17,7 @@ export default function NewsDetailsPage (props) {
             <header>
 
                 <Link href={`/news/${newsItem.id}/image`} >
-                    <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+                    <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
                 </Link>
 
                 <h1>{newsItem.title}</h1>
