@@ -5,7 +5,12 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <div id="home">
-      <Image src={logo.src} alt="A newspaper" />
+      <Image 
+        width='100'
+        height='100' 
+        src={logo.src} 
+        alt="A newspaper" 
+      />
 
       <h1>A News Site For The Next Generation</h1>
       <p>

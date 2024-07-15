@@ -17,7 +17,12 @@ export default function NewsDetailsPage (props) {
             <header>
 
                 <Link href={`/news/${newsItem.id}/image`} >
-                    <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+                    <Image 
+                        height='450'
+                        width='450'
+                        src={`/images/news/${newsItem.image}`} 
+                        alt={newsItem.title} 
+                        />
                 </Link>
 
                 <h1>{newsItem.title}</h1>

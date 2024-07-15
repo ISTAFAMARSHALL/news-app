@@ -11,7 +11,11 @@ export default function ImagePage (props) {
 
     return (
         <div className='fullscreen-image' >
-            <Image src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+            <Image 
+                width='735'
+                height='900'
+                src={`/images/news/${newsItem.image}`} 
+                alt={newsItem.title} />
         </div>
     )
 }

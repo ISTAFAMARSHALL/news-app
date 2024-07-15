@@ -10,11 +10,14 @@ export default function NewsList (props) {
                         <li key={newsItem.id} >
                             <Link href={`/news/${newsItem.id}`}>
                                 <Image 
+                                    width='480'
+                                    height='720'
+
                                     src={`/images/news/${newsItem.image}`} 
                                     alt={newsItem.title} 
                                 />
                             </Link>
-                            <p>{newsItem.title}</p>
+                            <p style={{marginTop: '1px'}}>{newsItem.title}</p>
                         </li>
                     )
                 })}

@@ -129,6 +129,8 @@ ul {
 
 .news-list a:hover {
   background-color: #2d2d2b;
+  animation: ease-in-out;
+  padding: 2%;
 }
 
 .modal-backdrop {
