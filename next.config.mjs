@@ -15,7 +15,11 @@ const nextConfig = {
         'cdn.tvfanatic.com', 
         'static1.simpleflyingimages.com', 
         'www.dailyecho.co.uk', 
-        'www.macombdaily.com'
+        'www.macombdaily.com',
+        'www.hotnewhiphop.com',
+        "cst.brightspotcdn.com",
+        "static1.straitstimes.com.sg",
+        "www.canberratimes.com.au"
       ],
     },
   };

@@ -6,49 +6,63 @@ import NewsList from "../../components/news-list"
 import NewsListCopy from '../../components/news-list copy'
 import { useEffect, useState } from "react"
 
-export default function NewsPage () {
+export default async function NewsPage () {
 
-    const [isloading, setIsLoading] = useState(false);
-    const [error, setError] = useState();
-    const [news, setNews] =useState();
+    // const [isloading, setIsLoading] = useState(false);
+    // const [error, setError] = useState();
+    // const [news, setNews] =useState();
 
-    useEffect(()=> {
+    const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_485434917ca164f6d32ccf0296dfe6792ed5c&q=pegasus&language=en');
 
-        async function fetchNews() {
-            setIsLoading(true);
-            // Fecthing Breaking News from API
-            const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_485434917ca164f6d32ccf0296dfe6792ed5c&q=pegasus&language=en');
+    if(!response.ok){
+        throw new Error (`Failed to fecth news. Error - ${response.status}:  ${response.statusText}`);
+         
+    }
 
-            if(!response.ok){
-               setError(`Failed to fecth news. Error - ${response.status}:  ${response.statusText}`);
-               console.log(response)
-               setIsLoading(false);
-            }
+    const news = await response.json()    
+
+    // useEffect(()=> {
+
+    //     async function fetchNews() {
+    //         setIsLoading(true);
+    //         // Fecthing Breaking News from API
+    //         const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_485434917ca164f6d32ccf0296dfe6792ed5c&q=pegasus&language=en');
+
+    //         if(!response.ok){
+    //            setError(`Failed to fecth news. Error - ${response.status}:  ${response.statusText}`);
+    //            console.log(response)
+    //            setIsLoading(false);
+    //         }
 
             
-            const news = await response.json()
-            setIsLoading(false)
-            setNews(news.results)
+    //         const news = await response.json()
+    //         setIsLoading(false)
 
-        }
+    //         const filteredNews = news.results.filter((newsitem) => newsitem.image_url !== null)
 
-        fetchNews()
+    //         setNews(filteredNews)
 
-    },[])
+    //     }
+
+    //     fetchNews()
+
+    // },[])
  
-    if (isloading) {
-        return <p>Loading...</p>
-    }
+    // if (isloading) {
+    //     return <p>Loading...</p>
+    // }
 
-    if (error) {
-        return <p>{error}</p>
-    }
+    // if (error) {
+    //     return <p>{error}</p>
+    // }
 
     let newsContent;
 
     if (news) {
-        newsContent = <NewsListCopy news={news}/>
-        console.log(news[0].image_url)
+        const filteredNews = news.results.filter((newsitem) => newsitem.image_url !== null)
+
+        newsContent = <NewsListCopy news={filteredNews}/>
+
     }
 
     return (
@@ -57,7 +71,7 @@ export default function NewsPage () {
 
             {newsContent}
 
-            <NewsList news={DUMMY_NEWS} />
+            {/* <NewsList news={DUMMY_NEWS} /> */}
 
             {/* <NewsListCopy news={news}/> */}
 
