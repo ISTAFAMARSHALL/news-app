@@ -1,3 +1,5 @@
+'use client'
+
 import NewsList from "@/app/components/news-list";
 import { getLatestNews } from "@/app/lib/new"
 

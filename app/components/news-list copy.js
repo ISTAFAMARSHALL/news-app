@@ -8,20 +8,23 @@ export default function NewsList (props) {
 
                 {props.news.map((newsItem) => {
                     return (
-                        <li key={newsItem.article_id} >
+                        <div key={newsItem.uri} >
+                        <li >
                             <Link 
-                            href={`/news/${newsItem.article_id}`}
+                            href={`/news/${newsItem.uri}`}
                             >
                                 <Image 
                                     width='480'
                                     height='720'
 
-                                    src={ !newsItem.image_url ? "" : newsItem.image_url } 
+                                    src={ !newsItem.image ? "" : newsItem.image } 
                                     alt={newsItem.title} 
+                                    priority
                                 />
                             </Link>
                             <p style={{marginTop: '1px'}}>{newsItem.title}</p>
                         </li>
+                        </div>
                     )
                 })}
 

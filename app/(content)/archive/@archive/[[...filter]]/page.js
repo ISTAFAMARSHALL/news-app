@@ -1,6 +1,7 @@
 import NewsList from "@/app/components/news-list";
 import { getNewsForYear ,getAvailableNewsYears, getAvailableNewsMonths , getNewsForYearAndMonth} from "@/app/lib/new";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function FilterNewsPage (props) {
     const filter = props.params.filter;
@@ -36,27 +37,32 @@ export default function FilterNewsPage (props) {
 
     return (
         <>
-            <header id='archive-header'>
+            <Suspense fallback={<p>Loading News...</p>}>
+                <header id='archive-header'>
 
-                <nav>
-                    <ul>
-                        {links.map((link) => {
+                    <nav>
+                        <ul>
+                            {links.map((link) => {
 
-                            const href = selectedYear
-                            ? `/archive/${selectedYear}/${link}`
-                            : `archive/${link}`;
+                                const href = selectedYear
+                                ? `/archive/${selectedYear}/${link}`
+                                : `archive/${link}`;
 
-                            return (
-                                <li key={link} >
-                                    <Link href={href} >{link}</Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </nav>
-                {/* <NewsList news={news} /> */}
-            </header>
-            {newsContent}
+                                return (
+                                    <li key={link} >
+                                        <Link href={href} >{link}</Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </nav>
+                    {/* <NewsList news={news} /> */}
+                
+                </header>
+            </Suspense>
+            <Suspense fallback={<p>Loading News...</p>}>
+                {newsContent}
+            </Suspense>
         </>
     )
 }
